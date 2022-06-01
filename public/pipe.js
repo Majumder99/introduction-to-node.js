@@ -3,9 +3,6 @@ var fs = require("fs");
 
 // var myReadStream = fs.createReadStream(__dirname + "/streamRead.txt");
 var myReadStream = fs.createReadStream(__dirname + "/streamRead.txt", "utf-8");
-var myWriteStream = fs.createWriteStream(__dirname + "/streanWrite.txt");
+var myWriteStream = fs.createWriteStream(__dirname + "/streanWriteMe.txt");
 
-myReadStream.on("data", (chunk) => {
-  console.log("New Chunk Received");
-  myWriteStream.write(chunk);
-});
+myReadStream.pipe(myWriteStream);
