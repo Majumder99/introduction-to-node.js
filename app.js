@@ -3,12 +3,26 @@ var app = express();
 
 app.set("view engine", "ejs"); //View engine means how browser will see it
 
+// app.get("/", (req, res) => {
+//   res.send("This is homepage");
+// });
+
+// app.get("/contact", (req, res) => {
+//   res.send("This is contact page");
+// });
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
+
+// app.get("/contact", (req, res) => {
+//   res.sendFile(__dirname + "/contact.html");
+// });
 app.get("/", (req, res) => {
-  res.send("This is homepage");
+  res.render("index"); //Should be same as ejs file
 });
 
 app.get("/contact", (req, res) => {
-  res.send("This is contact page");
+  res.render("contact");
 });
 
 app.get("/profile/:id", (req, res) => {
@@ -16,6 +30,7 @@ app.get("/profile/:id", (req, res) => {
   var data = {
     name: "sourav",
     age: 25,
+    hobbies: ["eating", "walking", "sleeping"],
   };
   res.render("profile", { person: req.params.id, data: data });
 });
