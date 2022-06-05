@@ -5,18 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/style.css" />
-    <title>First Page</title>
+    <title>Contact Success Page</title>
   </head>
   <body>
     <%- include('partials/nav.ejs') %>
-    <h1>Welcome to the profile of <%= person %></h1>
-    <p><strong>Age: </strong><%= data.age %></p>
-    <p><strong>Name: </strong><%= data.name %></p>
-    <h2>Hobbies</h2>
-    <ul>
-      <% data.hobbies.forEach((item) => { %>
-      <li><%= item %></li>
-      <% }) %>
-    </ul>
+    <h1>Welcome to the contact Page</h1>
+    <p>This is sourav majumder. The greatest</p>
+    <p>Welcome <%= data.name %>.</p>
+    <p>Your Id is <%= data.id %>.</p>
+    <p>Your Age is <%= data.age %>.</p>
   </body>
 </html>

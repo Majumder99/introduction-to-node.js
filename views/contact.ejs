@@ -4,29 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/style.css" />
     <title>Contact Page</title>
-    <style>
-      body {
-        background-color: skyblue;
-        color: white;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        padding: 30px;
-      }
-      h1 {
-        font-size: 48px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-align: center;
-      }
-      p {
-        font-size: 16px;
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
-    <% include('partials/nav.ejs') %>
+    <%- include('partials/nav.ejs') %>
     <h1>Welcome to the contact Page</h1>
     <p>This is sourav majumder. The greatest</p>
+    <p><%= obj.id %></p>
+    <p><%= obj.name %></p>
+    <p><%= obj.age %></p>
+
+    <!-- <form action="/contact" method="post">
+      <label for="who">Type Your Name</label>
+      <input type="text" name="who" value="<%= obj.name %>" />
+      <label for="age">Type Your Age</label>
+      <input type="number" name="age" value="<%= obj.age %>" />
+      <label for="id">Type Your Id</label>
+      <input type="number" name="id" value="<%= obj.id %>" />
+      <input type="submit" value="Submit" />
+    </form> -->
+
+    <form action="/contact" method="post">
+      <label for="name">Type Your Name</label>
+      <input type="text" name="name" value="" />
+      <label for="age">Type Your Age</label>
+      <input type="number" name="age" value="" />
+      <label for="id">Type Your Id</label>
+      <input type="number" name="id" value="" />
+      <input type="submit" value="Submit" />
+    </form>
   </body>
 </html>

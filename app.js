@@ -1,7 +1,20 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
 
 app.set("view engine", "ejs"); //View engine means how browser will see it
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false }); //This will convert our data from contact.eje
+
+//Middleware code
+//First method
+// app.use("/assets", (req, res, next) => {
+//   console.log(req.url);
+//   next();
+// });
+
+//Second Method
+app.use("/assets", express.static("assets"));
 
 // app.get("/", (req, res) => {
 //   res.send("This is homepage");
@@ -22,7 +35,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  // console.log(req.query);
+  res.render("contact", { obj: req.query });
+});
+app.post("/contact", urlencodedParser, (req, res) => {
+  // console.log(req.query);
+  // console.log(req.body);
+  res.render("contact-success", { data: req.body });
 });
 
 app.get("/profile/:id", (req, res) => {
